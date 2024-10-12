@@ -54,21 +54,9 @@ function contarArchivos(directorioBase: string): number {
 }
 
 // Función para mostrar el loading en consola
-//function mostrarLoading(mensaje: string, duracion: number) {
 function mostrarLoading(mensaje: string, i: number) {
   const simbolos = ["|", "/", "-", "\\"];
-  //let i = 0;
   process.stdout.write(`\r${mensaje} ${simbolos[(i + 1) % simbolos.length]}`);
-
-  /* const loadingInterval = setInterval(() => {
-    process.stdout.write(`\r${mensaje} ${simbolos[i]}`);
-    i = (i + 1) % simbolos.length;
-  }, 200);
-
-  setTimeout(() => {
-    clearInterval(loadingInterval);
-    console.log(`\r${mensaje} completado!`);
-  }, duracion); */
 }
 function copiarArchivo(archivo: string, rutaDestino: string): boolean {
   if (!fs.existsSync(rutaDestino)) {
@@ -77,7 +65,6 @@ function copiarArchivo(archivo: string, rutaDestino: string): boolean {
 
   try {
     fs.copyFileSync(archivo, path.join(rutaDestino, path.basename(archivo))); // Copiar el archivo
-    //console.log(`Copiando: ${archivo} a ${rutaDestino}`);
     archivosCopiados.push(archivo);
     totalArchivos += 1;
     return true;
@@ -117,7 +104,6 @@ function moverANoReconocidos(archivo: string, rutaNoReconocidos: string) {
 
   try {
     copiarArchivo(archivo, rutaNoReconocidos);
-    //console.log(`Archivo no reconocido movido: ${archivo}`);
   } catch (error) {
     console.error(`Error al mover ${archivo} a no reconocidos: ${error}`);
   }
