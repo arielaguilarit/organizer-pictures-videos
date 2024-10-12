@@ -1,0 +1,20 @@
+{
+  "version": "1.0.0",
+  "description": "Procesador para el ordenado de fotos y videos personales",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --exec \"npx ts-node\" src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}
